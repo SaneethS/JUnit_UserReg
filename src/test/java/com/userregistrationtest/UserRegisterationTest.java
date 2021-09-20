@@ -34,5 +34,41 @@ public class UserRegisterationTest {
 		Assert.assertFalse(resLName);
 	}
 	
+	@Test
+	public void emailIsInCorrectFormat() {
+		UserRegistration user = new UserRegistration();
+		boolean resEmail = user.email("abc.max@gmail.co.in");
+		Assert.assertTrue(resEmail);
+	}
+	
+	@Test
+	public void emailIsInCorrectFormatWithComAtEnd() {
+		UserRegistration user = new UserRegistration();
+		boolean resEmail = user.email("abc.max@gmail.com");
+		Assert.assertTrue(resEmail);
+	}
+	
+	@Test
+	public void emailIsInCorrectFormatWithoutOptionalField() {
+		UserRegistration user = new UserRegistration();
+		boolean resEmail = user.email("abc@gmail.com");
+		Assert.assertTrue(resEmail);
+	}
+	
+	@Test
+	public void emailIsInWrongFormat() {
+		UserRegistration user = new UserRegistration();
+		boolean resEmail = user.email("abc.max@gmail");
+		Assert.assertFalse(resEmail);
+	}
+	
+	@Test
+	public void emailIsInWrongFormatWithoutProperNotation() {
+		UserRegistration user = new UserRegistration();
+		boolean resEmail = user.email("abc.maxgmailcom");
+		Assert.assertFalse(resEmail);
+	}
+
+	
 	
 }
