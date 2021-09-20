@@ -90,4 +90,18 @@ public class UserRegisterationTest {
 		Assert.assertFalse(resMobile);
 	}
 	
+	@Test
+	public void passwordIsInCorrectFormat() {
+		UserRegistration user = new UserRegistration();
+		boolean resPassword = user.password("qwertyqwer");
+		Assert.assertTrue(resPassword);
+	}
+	
+	@Test
+	public void passwordHasLessThan8Characters() {
+		UserRegistration user = new UserRegistration();
+		boolean resPassword = user.password("qwert");
+		Assert.assertFalse(resPassword);
+	}
+	
 }
