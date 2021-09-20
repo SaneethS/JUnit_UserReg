@@ -5,6 +5,10 @@ import org.junit.Test;
 
 import com.userregistration.UserRegistration;
 
+/**
+ * @author saneeths
+ *Test cases are created for all the fields
+ */
 public class UserRegisterationTest {
 	
 	@Test
