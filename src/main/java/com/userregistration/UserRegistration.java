@@ -23,4 +23,9 @@ public class UserRegistration {
 		String patternEmail = "^[a-zA-Z0-9-_+]+(\\.?[a-zA-Z0-9-_]+)@[a-zA-Z0-9-_]+\\.[a-zA-Z]{2,}(\\.?[a-zA-Z-_]+)";
 		return Pattern.matches(patternEmail, email);
 	}
+	
+	public static boolean mobileNo(String mobileNo) {
+		String patternMobileNo = "^[0-9]{2}[\\s][0-9]{10}";
+		return Pattern.matches(patternMobileNo, mobileNo);
+	}
 }
