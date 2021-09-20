@@ -93,7 +93,7 @@ public class UserRegisterationTest {
 	@Test
 	public void passwordIsInCorrectFormat() {
 		UserRegistration user = new UserRegistration();
-		boolean resPassword = user.password("qwErtyqwer");
+		boolean resPassword = user.password("qwErtyqwer12");
 		Assert.assertTrue(resPassword);
 	}
 	
@@ -108,6 +108,13 @@ public class UserRegisterationTest {
 	public void passwordHasLessNoCapitalLetter() {
 		UserRegistration user = new UserRegistration();
 		boolean resPassword = user.password("qwertadafaf");
+		Assert.assertFalse(resPassword);
+	}
+	
+	@Test
+	public void passwordHasLessNoDigit() {
+		UserRegistration user = new UserRegistration();
+		boolean resPassword = user.password("qweRtadafaf");
 		Assert.assertFalse(resPassword);
 	}
 	
