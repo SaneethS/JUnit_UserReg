@@ -9,7 +9,7 @@ public class UserRegistration {
 		System.out.println(lastName("Payne"));
 		System.out.println(email("abc.max@gmail.com"));
 		System.out.println(mobileNo("91 9865453223"));
-		System.out.println(password("qwqerty@1"));
+		System.out.println(password("qwqErty@1"));
 	}
 	
 	public static boolean firstName(String firstName) {
@@ -33,7 +33,7 @@ public class UserRegistration {
 	}
 	
 	public static boolean password(String password) {
-		String patternPassword = "(?=.*[a-z]).{8,}";
+		String patternPassword = "(?=.*[A-Z]).{8,}";
 		return Pattern.matches(patternPassword, password);
 		
 	}
