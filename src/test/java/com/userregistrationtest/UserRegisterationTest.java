@@ -69,6 +69,25 @@ public class UserRegisterationTest {
 		Assert.assertFalse(resEmail);
 	}
 
+	@Test
+	public void mobileNoIsInCorrectFormat() {
+		UserRegistration user = new UserRegistration();
+		boolean resMobile = user.mobileNo("91 9876451234");
+		Assert.assertTrue(resMobile);
+	}
 	
+	@Test
+	public void mobileNoWithoutCountryCode() {
+		UserRegistration user = new UserRegistration();
+		boolean resMobile = user.mobileNo("9876451234");
+		Assert.assertFalse(resMobile);
+	}
+	
+	@Test
+	public void mobileNoWithLessThanTenDigits() {
+		UserRegistration user = new UserRegistration();
+		boolean resMobile = user.mobileNo("91 9876451");
+		Assert.assertFalse(resMobile);
+	}
 	
 }
