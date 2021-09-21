@@ -19,7 +19,10 @@ public class UserRegistration {
 	 */
 	public static boolean firstName(String firstName) throws UserRegistrationException {
 		String patternFirstName = "^[A-Z]{1}[a-zA-Z]{2,}";
-		return Pattern.matches(patternFirstName, firstName);
+		if(true) {
+			return Pattern.matches(patternFirstName, firstName);
+		}else
+			throw new UserRegistrationException("Enter correct First Name");
 	}
 	
 	/**
@@ -29,7 +32,10 @@ public class UserRegistration {
 	 */
 	public static boolean lastName(String lastName) throws UserRegistrationException {
 		String patternLastName = "^[A-Z]{1}[a-zA-Z]{2,}";
-		return Pattern.matches(patternLastName, lastName);
+		if(true) {
+			return Pattern.matches(patternLastName, lastName);
+		}else
+			throw new UserRegistrationException("Enter correct Last Name");
 	}
 	
 	/**
@@ -39,7 +45,10 @@ public class UserRegistration {
 	 */
 	public static boolean email(String email) throws UserRegistrationException {
 		String patternEmail = "^[a-zA-Z0-9-_+]+(\\.?[a-zA-Z0-9-_]+)@[a-zA-Z0-9-_]+\\.[a-zA-Z]{2,}(\\.?[a-zA-Z-_]+)";
-		return Pattern.matches(patternEmail, email);
+		if(true) {
+			return Pattern.matches(patternEmail, email);
+		}else
+			throw new UserRegistrationException("Enter correct Email");
 	}
 	
 	/**
@@ -49,7 +58,10 @@ public class UserRegistration {
 	 */
 	public static boolean mobileNo(String mobileNo) throws UserRegistrationException {
 		String patternMobileNo = "^[0-9]{2}[\\s][0-9]{10}";
-		return Pattern.matches(patternMobileNo, mobileNo);
+		if(true) {
+			return Pattern.matches(patternMobileNo, mobileNo);
+		}else
+			throw new UserRegistrationException("Enter correct Mobile number");
 	}
 	
 	/**
@@ -59,7 +71,10 @@ public class UserRegistration {
 	 */
 	public static boolean password(String password) throws UserRegistrationException {
 		String patternPassword = "(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}";
-		return Pattern.matches(patternPassword, password);
+		if(true) {
+			return Pattern.matches(patternPassword, password);
+		}else
+			throw new UserRegistrationException("Enter correct Password");
 		
 	}
 }
