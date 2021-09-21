@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public class UserRegistration {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws UserRegistrationException {
 		System.out.println(firstName("Max"));
 		System.out.println(lastName("Payne"));
 		System.out.println(email("abc.max@gmail.com"));
@@ -17,7 +17,7 @@ public class UserRegistration {
 	 * @param firstName
 	 * @return
 	 */
-	public static boolean firstName(String firstName) {
+	public static boolean firstName(String firstName) throws UserRegistrationException {
 		String patternFirstName = "^[A-Z]{1}[a-zA-Z]{2,}";
 		return Pattern.matches(patternFirstName, firstName);
 	}
@@ -27,7 +27,7 @@ public class UserRegistration {
 	 * @param lastName
 	 * @return
 	 */
-	public static boolean lastName(String lastName) {
+	public static boolean lastName(String lastName) throws UserRegistrationException {
 		String patternLastName = "^[A-Z]{1}[a-zA-Z]{2,}";
 		return Pattern.matches(patternLastName, lastName);
 	}
@@ -37,7 +37,7 @@ public class UserRegistration {
 	 * @param email
 	 * @return
 	 */
-	public static boolean email(String email) {
+	public static boolean email(String email) throws UserRegistrationException {
 		String patternEmail = "^[a-zA-Z0-9-_+]+(\\.?[a-zA-Z0-9-_]+)@[a-zA-Z0-9-_]+\\.[a-zA-Z]{2,}(\\.?[a-zA-Z-_]+)";
 		return Pattern.matches(patternEmail, email);
 	}
@@ -47,7 +47,7 @@ public class UserRegistration {
 	 * @param mobileNo
 	 * @return
 	 */
-	public static boolean mobileNo(String mobileNo) {
+	public static boolean mobileNo(String mobileNo) throws UserRegistrationException {
 		String patternMobileNo = "^[0-9]{2}[\\s][0-9]{10}";
 		return Pattern.matches(patternMobileNo, mobileNo);
 	}
@@ -57,7 +57,7 @@ public class UserRegistration {
 	 * @param password
 	 * @return
 	 */
-	public static boolean password(String password) {
+	public static boolean password(String password) throws UserRegistrationException {
 		String patternPassword = "(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}";
 		return Pattern.matches(patternPassword, password);
 		
