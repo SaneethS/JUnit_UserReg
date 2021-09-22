@@ -246,7 +246,6 @@ public class UserRegisterationTest {
 		try {
 			Assert.assertTrue(user.email(email));
 		} catch (UserRegistrationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
