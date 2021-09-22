@@ -12,28 +12,39 @@ public class UserRegistration {
 		System.out.println(password("qwqErty@1"));
 	}
 	
+	static String patternFirstName = "^[A-Z]{1}[a-zA-Z]{2,}";
+	static String patternLastName = "^[A-Z]{1}[a-zA-Z]{2,}";
+	static String patternEmail = "^[a-zA-Z0-9-_+]+(\\.?[a-zA-Z0-9-_]+)@[a-zA-Z0-9-_]+\\.[a-zA-Z]{2,}(\\.?[a-zA-Z-_]+)";
+	static String patternMobileNo = "^[0-9]{2}[\\s][0-9]{10}";
+	static String patternPassword = "(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}";
+	
+	static Validator validateFirstName = (firstName)->Pattern.matches(patternFirstName, firstName);
+	static Validator validateLastName = (lastName)->Pattern.matches(patternLastName, lastName);
+	static Validator validateEmail = (email)->Pattern.matches(patternEmail, email);
+	static Validator validateMobileNo = (mobileNo)->Pattern.matches(patternMobileNo, mobileNo);
+	static Validator validatePassword = (password)->Pattern.matches(patternPassword, password);
 	/**
-	 * first name pattern is created
+	 * first name pattern is created using lambda expression
 	 * @param firstName
 	 * @return
 	 */
 	public static boolean firstName(String firstName) throws UserRegistrationException {
-		String patternFirstName = "^[A-Z]{1}[a-zA-Z]{2,}";
-		if(true) {
-			return Pattern.matches(patternFirstName, firstName);
+		boolean resultFirstName =  validateFirstName.validator(firstName);
+		if(resultFirstName) {
+			return true;
 		}else
 			throw new UserRegistrationException("Enter correct First Name");
 	}
 	
 	/**
-	 * last name pattern is created
+	 * last name pattern is created using lambda expression
 	 * @param lastName
 	 * @return
 	 */
 	public static boolean lastName(String lastName) throws UserRegistrationException {
-		String patternLastName = "^[A-Z]{1}[a-zA-Z]{2,}";
-		if(true) {
-			return Pattern.matches(patternLastName, lastName);
+		boolean resultLastName =  validateLastName.validator(lastName);
+		if(resultLastName) {
+			return true;
 		}else
 			throw new UserRegistrationException("Enter correct Last Name");
 	}
@@ -44,7 +55,7 @@ public class UserRegistration {
 	 * @return
 	 */
 	public static boolean email(String email) throws UserRegistrationException {
-		String patternEmail = "^[a-zA-Z0-9-_+]+(\\.?[a-zA-Z0-9-_]+)@[a-zA-Z0-9-_]+\\.[a-zA-Z]{2,}(\\.?[a-zA-Z-_]+)";
+		boolean resultEmail =  validateEmail.validator(email);
 		if(true) {
 			return Pattern.matches(patternEmail, email);
 		}else
@@ -52,12 +63,12 @@ public class UserRegistration {
 	}
 	
 	/**
-	 * mobile number pattern is created
+	 * mobile number pattern is created using lambda expression
 	 * @param mobileNo
 	 * @return
 	 */
 	public static boolean mobileNo(String mobileNo) throws UserRegistrationException {
-		String patternMobileNo = "^[0-9]{2}[\\s][0-9]{10}";
+		boolean resultMobileNo =  validateMobileNo.validator(mobileNo);
 		if(true) {
 			return Pattern.matches(patternMobileNo, mobileNo);
 		}else
@@ -65,12 +76,12 @@ public class UserRegistration {
 	}
 	
 	/**
-	 * password pattern is created
+	 * password pattern is created using lambda expression
 	 * @param password
 	 * @return
 	 */
 	public static boolean password(String password) throws UserRegistrationException {
-		String patternPassword = "(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}";
+		boolean resultPassword =  validatePassword.validator(password);
 		if(true) {
 			return Pattern.matches(patternPassword, password);
 		}else
